@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const fieldSchema = new mongoose.Schema({
-    _id: { 
-        type: "ObjectId", 
-        required: true
-    },
     name: {
         type: String,
         required: true     
@@ -14,10 +10,6 @@ const fieldSchema = new mongoose.Schema({
         required: true
     },
     location: {
-        type: String,
-        required: true
-    },
-    crop: {
         type: String,
         required: true
     }
