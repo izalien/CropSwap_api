@@ -66,4 +66,20 @@ router.get('/grows/getAllCurrent', async (req, res) => {
     }
 });
 
+router.post('/grows/remove', async (req, res) => {
+    try {
+        const query = {_id: req.body}
+        await Grow.deleteMany(query);
+        res.status(200).json({
+            status: 'success',
+        })
+    }
+    catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        });
+    }
+});
+
 module.exports = router;
