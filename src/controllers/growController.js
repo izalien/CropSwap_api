@@ -50,7 +50,7 @@ router.post('/grows/createFromExisting', async (req, res) => {
 
 router.get('/grows/getAllCurrent', async (req, res) => {
     try {
-        const grows = await Grow.find(req.params);
+        const grows = await Grow.find({season: req.query.season});
         res.status(200).json({
             status: 'success',
             results: grows.length,
