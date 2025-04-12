@@ -82,4 +82,22 @@ router.post('/grows/remove', async (req, res) => {
     }
 });
 
+router.get('/grows/getAll', async (req, res) => {
+    try {
+        const grows = await Grow.find();
+        res.status(200).json({
+            status: 'success',
+            results: grows.length,
+            data: {
+                grows
+            }
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: 'fail',
+            message: err
+        });
+    }
+});
+
 module.exports = router;
